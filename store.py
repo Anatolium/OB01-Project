@@ -27,8 +27,9 @@ class Store:
             print("Товары не добавлены")
             return
         print(f"\nАссортимент магазина {self.name} по адресу {self.address}:")
-        for item_name, price in self.items.items():
-            print(f"{item_name.ljust(16)[:16]} Цена: {price}")
+        # for item_name, price in self.items.items():
+        for number, item_name in enumerate(self.items.items(), 1):
+            print(f"{number}. {item_name[0].ljust(16)[:16]} Цена: {item_name[1]}")
         print()
 
 
@@ -49,10 +50,11 @@ store3.add_item("Milk", 79.50)
 store3.add_item("Yogurt", 69.50)
 
 print("Проверяем работу методов на примере магазина 'Евроспар':")
+store2.get_assortment()
 
 # Добавление товара
-store2.add_item("Marshmallows", 149.90)
-print(f"\nПосле добавления пастилы:")
+store2.add_item("Marshmallows", 129.50)
+print(f"*** После добавления пастилы ***")
 store2.get_assortment()
 
 # Обновление цены товара
@@ -61,7 +63,7 @@ print(f"Обновленная цена Nescafe: {store2.get_price('Nescafe')}")
 
 # Удаление товара
 store2.remove_item("Сасао")
-print(f"\nПосле удаления какао:")
+print(f"\n*** После удаления какао ***")
 store2.get_assortment()
 
 # Получение цены товара
