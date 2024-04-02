@@ -9,7 +9,6 @@ class Task:
         self.is_done = False
 
 
-# Класс для управления задачами
 class TaskManager:
     def __init__(self):
         self.tasks = []
@@ -63,13 +62,12 @@ class TaskManager:
                 return
         print(f"---- Задачи с номером {input_str} нет в списке----")
 
-
     # Функция печати списка текущих задач
     def get_current_tasks(self):
-        print("\nТекущие задачи:")
         if len(self.tasks) == 0:
-            print("Нет текущих задач.")
+            print("Нет текущих задач")
             return False
+        print("\nТекущие задачи:")
         sorted_task_list = sorted(self.tasks, key=lambda x: x.number)
         for index, task in enumerate(sorted_task_list, 1):
             description = task.description.ljust(30)[:30]
